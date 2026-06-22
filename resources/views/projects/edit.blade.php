@@ -3,20 +3,27 @@
 
 @section('content')
 <div class="max-w-2xl mx-auto">
-    <h1 class="text-2xl font-bold text-gray-900 mb-6">Edit Project</h1>
+    <div class="mb-6">
+        <a href="{{ route('projects.show', $project) }}" class="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            Back to Project
+        </a>
+        <h1 class="text-2xl font-bold text-gray-900 mt-2">Edit Project</h1>
+        <p class="text-sm text-gray-500 mt-0.5">Update the project details below</p>
+    </div>
 
-    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
         <form method="POST" action="{{ route('projects.update', $project) }}" novalidate>
             @csrf @method('PUT')
             @include('projects._form')
 
-            <div class="flex gap-3 mt-6">
+            <div class="flex gap-3 mt-8 pt-6 border-t border-gray-100">
                 <button type="submit"
-                    class="px-5 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition">
+                    class="px-5 py-2.5 bg-indigo-600 text-white text-sm font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm">
                     Save Changes
                 </button>
                 <a href="{{ route('projects.show', $project) }}"
-                   class="px-5 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition">
+                   class="px-5 py-2.5 bg-gray-100 text-gray-700 text-sm font-semibold rounded-xl hover:bg-gray-200 transition-colors">
                     Cancel
                 </a>
             </div>
